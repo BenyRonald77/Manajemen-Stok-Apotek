@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/*
+  Identitas visual — Manajemen Stok Apotek
+  Dipilih agar terasa seperti alat kerja klinis yang tenang, bukan dashboard
+  AI generik bergradasi biru-ungu. Alasan tiap keputusan ditulis di CLAUDE.md.
+
+  - Primer: teal gelap (kesehatan/farmasi, dipakai untuk navigasi & aksi utama)
+  - Aksen urgensi: amber (waspada) & merah (kritis) — HANYA untuk status
+    kedaluwarsa/stok, tidak dipakai dekoratif di tempat lain
+  - Netral: stone (abu hangat), bukan abu-abu netral generik
+*/
+
+:root {
+  --color-canvas: #faf9f7;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f2efe9;
+  --color-border: #e4ded3;
+  --color-border-strong: #cfc6b4;
+
+  --color-ink: #21201c;
+  --color-ink-muted: #5a5648;
+  --color-ink-subtle: #8a8371;
+
+  --color-primary: #0f5c53;
+  --color-primary-dark: #0a413a;
+  --color-primary-light: #e4efec;
+  --color-primary-ink: #ffffff;
+
+  --color-warning: #b6590a;
+  --color-warning-bg: #fbeddc;
+  --color-warning-border: #eec48c;
+
+  --color-critical: #ad2b2b;
+  --color-critical-bg: #fbe6e2;
+  --color-critical-border: #eeb6a9;
+
+  --color-safe: #2a6b4f;
+  --color-safe-bg: #e6f0ea;
+  --color-safe-border: #b7d6c4;
+
+  --font-display: var(--font-jakarta);
+}
+
+@theme inline {
+  --color-canvas: var(--color-canvas);
+  --color-surface: var(--color-surface);
+  --color-surface-muted: var(--color-surface-muted);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-ink-subtle: var(--color-ink-subtle);
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-ink: var(--color-primary-ink);
+  --color-warning: var(--color-warning);
+  --color-warning-bg: var(--color-warning-bg);
+  --color-warning-border: var(--color-warning-border);
+  --color-critical: var(--color-critical);
+  --color-critical-bg: var(--color-critical-bg);
+  --color-critical-border: var(--color-critical-border);
+  --color-safe: var(--color-safe);
+  --color-safe-bg: var(--color-safe-bg);
+  --color-safe-border: var(--color-safe-border);
+  --font-sans: var(--font-display);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
