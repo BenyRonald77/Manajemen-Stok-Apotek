@@ -15,3 +15,59 @@ model Admin {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model Obat {
+  id           String @id @default(cuid())
+  nama         String
+  kategori     String
+  satuan       String
+  stokMinimum  Int    @default(0)
+
+  batch        BatchObat[]
+  transaksi    TransaksiStok[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum JenisTransaksi {
+  MASUK
+  KELUAR
+}
+
+model BatchObat {
+  id                 String   @id @default(cuid())
+  obat               Obat     @relation(fields: [obatId], references: [id], onDelete: Cascade)
+  obatId             String
+  nomorBatch         String
+  tanggalMasuk       DateTime
+  tanggalKedaluwarsa DateTime
+  jumlahAwal         Int
+  jumlahSisa         Int
+  hargaBeli          Float
+  supplier           String
+
+  transaksi TransaksiStok[]
+
+  createdAt DateTime @default(now())
+
+  @@index([obatId])
+  @@index([tanggalKedaluwarsa])
+}
+
+model TransaksiStok {
+  id          String         @id @default(cuid())
+  obat        Obat           @relation(fields: [obatId], references: [id], onDelete: Cascade)
+  obatId      String
+  batch       BatchObat?     @relation(fields: [batchId], references: [id], onDelete: SetNull)
+  batchId     String?
+  jenis       JenisTransaksi
+  jumlah      Int
+  tanggal     DateTime       @default(now())
+  keterangan  String?
+
+  createdAt DateTime @default(now())
+
+  @@index([obatId])
+  @@index([batchId])
+}
