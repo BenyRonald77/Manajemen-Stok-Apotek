@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { IconAlert, IconCapsule, IconOutflow } from "./icons";
 
 const NAV_ITEMS = [
-  { href: "/", label: "Dashboard", Icon: IconAlert },
+  { href: "/", label: "Peringatan Kedaluwarsa", Icon: IconAlert },
   { href: "/obat", label: "Data Obat", Icon: IconCapsule },
   { href: "/pengeluaran", label: "Pengeluaran Stok", Icon: IconOutflow },
 ];
