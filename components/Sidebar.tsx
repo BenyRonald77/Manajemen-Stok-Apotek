@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { IconAlert, IconCapsule, IconOutflow } from "./icons";
+import { IconAlert, IconCapsule, IconOutflow, IconReport } from "./icons";
 
 const NAV_ITEMS = [
   { href: "/", label: "Peringatan Kedaluwarsa", Icon: IconAlert },
   { href: "/obat", label: "Data Obat", Icon: IconCapsule },
   { href: "/pengeluaran", label: "Pengeluaran Stok", Icon: IconOutflow },
+  { href: "/laporan/stok-minimum", label: "Laporan Stok Minimum", Icon: IconReport },
 ];
 
 function isActive(pathname: string, href: string) {
