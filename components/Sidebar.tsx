@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { IconAlert } from "./icons";
+import { IconAlert, IconCapsule } from "./icons";
 
-const NAV_ITEMS = [{ href: "/", label: "Dashboard", Icon: IconAlert }];
+const NAV_ITEMS = [
+  { href: "/", label: "Dashboard", Icon: IconAlert },
+  { href: "/obat", label: "Data Obat", Icon: IconCapsule },
+];
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
