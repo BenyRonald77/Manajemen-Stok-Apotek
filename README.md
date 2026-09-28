@@ -111,3 +111,7 @@ npm run start
   dan notifikasi via email/WhatsApp).
 - Basis data SQLite berbasis berkas (`prisma/dev.db`), cocok untuk instalasi lokal satu
   apotek; migrasi ke database server dapat dipertimbangkan bila kebutuhan berkembang.
+
+## Kontributor
+
+- BenyRonald77
